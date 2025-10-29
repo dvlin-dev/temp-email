@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <div className="text-white w-full mt-auto flex flex-col items-center justify-between px-5 pt-16 mb-10 md:px-10 mx-auto sm:flex-row">
       <Link to="/" className="text-xl font-black leading-none select-none logo">
-        VMAIL.DEV
+        temp-email.DEV
       </Link>{" "}
       <p className="mt-4 text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">
         © 2024 Products of{" "}
@@ -50,7 +50,7 @@ export function Footer() {
           <Twitter />
         </a>
         <a
-          href="https://github.com/oiov/vmail"
+          href="https://github.com/dvlin-dev/temp-email"
           target="_blank"
           rel="noopener noreferrer"
           title="Github"

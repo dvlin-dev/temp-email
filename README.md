@@ -1,7 +1,7 @@
 <div align="center">
-  <a href="https://trendshift.io/repositories/8681" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8681" alt="yesmore%2Fvmail | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/8681" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8681" alt="yesmore%2Ftemp-email | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
   <h1>𝐕𝐌𝐀𝐈𝐋.𝐃𝐄𝐕</h1>
-  <p><a href="https://discord.gg/d68kWCBDEs">Discord</a> · <a href="https://github.com/oiov/vmail/blob/main/README_en.md">English</a> | 简体中文</p>
+  <p><a href="https://discord.gg/d68kWCBDEs">Discord</a> · <a href="https://github.com/dvlin-dev/temp-email/blob/main/README_en.md">English</a> | 简体中文</p>
   <p>使用 Cloudflare Email Worker 实现的临时电子邮件服务</p>
 </div>
 
@@ -31,7 +31,7 @@
 
 ### 自动部署 (推荐)
 
-本项目已包含一个预先配置好的 GitHub Action 工作流，可以帮助您自动将 Vmail 应用部署到 Cloudflare。
+本项目已包含一个预先配置好的 GitHub Action 工作流，可以帮助您自动将 temp-email 应用部署到 Cloudflare。
 
 详细步骤请参考 [GitHub Action 自动部署教程](/docs/github-action-tutorial.md)。
 
@@ -39,8 +39,8 @@
 
 1.  **克隆项目到本地**
     ```bash
-    git clone https://github.com/oiov/vmail
-    cd vmail
+    git clone https://github.com/dvlin-dev/temp-email
+    cd temp-email
     pnpm install
     ```
 
@@ -96,4 +96,4 @@ GNU General Public License v3.0
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=oiov/vmail&type=Date)](https://star-history.com/#oiov/vmail&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=oiov/temp-email&type=Date)](https://star-history.com/#oiov/temp-email&Date)

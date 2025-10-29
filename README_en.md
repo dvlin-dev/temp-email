@@ -32,7 +32,7 @@ This project is now fully based on Cloudflare Pages and Cloudflare D1, which gre
 
 ### Automatic Deployment (Recommended)
 
-This project includes a pre-configured GitHub Action workflow to help you automatically deploy the Vmail application to Cloudflare.
+This project includes a pre-configured GitHub Action workflow to help you automatically deploy the temp-email application to Cloudflare.
 
 For detailed steps, please refer to the [GitHub Action Auto-Deployment Tutorial](/docs/github-action-tutorial.md).
 
@@ -40,8 +40,8 @@ For detailed steps, please refer to the [GitHub Action Auto-Deployment Tutorial]
 
 1.  **Clone the project locally**
     ```bash
-    git clone https://github.com/oiov/vmail
-    cd vmail
+    git clone https://github.com/dvlin-dev/temp-email
+    cd temp-email
     pnpm install
     ```
 
@@ -102,4 +102,4 @@ GNU General Public License v3.0
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=oiov/vmail&type=Date)](https://star-history.com/#oiov/vmail&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=oiov/temp-email&type=Date)](https://star-history.com/#oiov/temp-email&Date)

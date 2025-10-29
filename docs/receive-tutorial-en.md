@@ -2,11 +2,11 @@
 
 **1.Register a [turso](https://turso.tech) account, create a database, and create an emails table**
 
-After registration, you will be prompted to create a database. I named it `vmail` here,
+After registration, you will be prompted to create a database. I named it `temp-email` here,
 
 ![](https://imgv2.wr.do/file/3773b481c78c9087140b1.png)
 
-Select your database, you will see the "Edit Table" button, click and enter, continue to click the "SQL Runner" button in the upper left corner, and insert the [SQL Script](https://github.com/oiov/vmail/blob/main/packages/database/drizzle/0000_sturdy_arclight.sql) Copy to Terminal Run:
+Select your database, you will see the "Edit Table" button, click and enter, continue to click the "SQL Runner" button in the upper left corner, and insert the [SQL Script](https://github.com/dvlin-dev/temp-email/blob/main/packages/database/drizzle/0000_sturdy_arclight.sql) Copy to Terminal Run:
 
 ```bash
 # Copy sql script to run on the terminal (packages/database/drizzle/0000_sturdy_arclight.sql)
@@ -38,19 +38,19 @@ CREATE TABLE `emails` (
 **2.Deploy email workers**
 
 ```bash
-git clone https://github.com/oiov/vmail
+git clone https://github.com/dvlin-dev/temp-email
 
-cd vmail
+cd temp-email
 
 # Install dependencies
 pnpm install
 ```
 
-Fill in the necessary environment variables in `vmail/apps/email-worker/wrangler.toml` file.
+Fill in the necessary environment variables in `temp-email/apps/email-worker/wrangler.toml` file.
 
 - TURSO_DB_AUTH_TOKEN (turso table info from step 1，click `Generate Token`)
 - TURSO_DB_URL (e.g. libsql://db-name.turso.io)
-- EMAIL_DOMAIN (e.g. vmail.dev)
+- EMAIL_DOMAIN (e.g. temp-email.dev)
 
 > If you don't do this step, you can add environment variables in the worker settings of Cloudflare
 
@@ -78,7 +78,7 @@ Ensure that the following environment variables (`.env.example`) are prepared an
 | COOKIES_SECRET         | The encryption secret of the cookie, a random string is sufficient | `s3cr3t`                               |
 | TURSO_DB_RO_AUTH_TOKEN | Obtain database credentials from turso                             | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9` |
 | TURSO_DB_URL           | Obtain database credentials from turso                             | `libsql://db-name.turso.io`            |
-| EMAIL_DOMAIN           | email domains                                                      | `vmail.dev,meetu.dev`                  |
+| EMAIL_DOMAIN           | email domains                                                      | `temp-email.dev,meetu.dev`                  |
 | EXPIRY_TIME            | Optional. default `86400`                                          | `86400`                                |
 | TURNSTILE_KEY          | Optional. Obtained from Cloudflare for website verification        | `1234567890`                           |
 | TURNSTILE_SECRET       | Optional. Obtained from Cloudflare for website verification        | `s3cr3t`                               |
@@ -89,7 +89,7 @@ Get `TURNSTILE_KEY`、`TURNSTILE_SECRET` from https://dash.cloudflare.com/?to=/:
 
 Deploy your own version of email to Vercel with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foiov%2Fvmail&env=COOKIES_SECRET&env=TURNSTILE_KEY&env=TURNSTILE_SECRET&env=TURSO_DB_RO_AUTH_TOKEN&env=TURSO_DB_URL&env=EMAIL_DOMAIN&project-name=vmail&repository-name=vmail)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foiov%2Ftemp-email&env=COOKIES_SECRET&env=TURNSTILE_KEY&env=TURNSTILE_SECRET&env=TURSO_DB_RO_AUTH_TOKEN&env=TURSO_DB_URL&env=EMAIL_DOMAIN&project-name=temp-email&repository-name=temp-email)
 
 Or push the code to your Github repository and create a new project in Vercel. Choose `New project`, then import the corresponding Github repository, fill in the environment variables, select the `Remix` framework, and click `Deploy`. Wait for the deployment to complete.
 
@@ -101,7 +101,7 @@ Click Couninue to Dashboard -> Settings -> General:
 **For fly.io:** 
 
 ```bash
-cd vmail/apps/remix 
+cd temp-email/apps/remix 
 fly launch
 ```
 

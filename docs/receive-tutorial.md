@@ -2,13 +2,13 @@
 
 **1.注册一个 [turso](https://turso.tech) 账户，创建数据库，并创建一个`emails`表**
 
-注册后，系统会提示您创建一个数据库。在这里我将其命名为 `vmail`，
+注册后，系统会提示您创建一个数据库。在这里我将其命名为 `temp-email`，
 
 ![](https://imgv2.wr.do/file/3773b481c78c9087140b1.png) 
 
 然后，创建一个名为 `emails` 的表。
 
-选择您的数据库，您会看到“编辑表”按钮，点击并进入，继续点击左上角的 `SQL runner` 按钮，将[sql脚本](https://github.com/oiov/vmail/blob/main/packages/database/drizzle/0000_sturdy_arclight.sql)复制到终端运行:
+选择您的数据库，您会看到“编辑表”按钮，点击并进入，继续点击左上角的 `SQL runner` 按钮，将[sql脚本](https://github.com/dvlin-dev/temp-email/blob/main/packages/database/drizzle/0000_sturdy_arclight.sql)复制到终端运行:
 
 <details>
 <summary>查看脚本内容</summary>
@@ -62,19 +62,19 @@ npm install -g pnpm
 ```
 
 ```bash
-git clone https://github.com/oiov/vmail
+git clone https://github.com/dvlin-dev/temp-email
 
-cd vmail
+cd temp-email
 
 # 安装依赖
 pnpm install
 ```
 
-在 `vmail/apps/email-worker/wrangler.toml` 文件中填写必要的环境变量。
+在 `temp-email/apps/email-worker/wrangler.toml` 文件中填写必要的环境变量。
 
 - TURSO_DB_AUTH_TOKEN（第1步中的turso表信息，点击“Generate Token”）
 - TURSO_DB_URL（例如 libsql://db-name.turso.io）
-- EMAIL_DOMAIN (域名，如 vmail.dev)
+- EMAIL_DOMAIN (域名，如 temp-email.dev)
   
 > 如果您不执行此步骤，可以在Cloudflare的 worker settings 中添加环境变量
 
@@ -101,7 +101,7 @@ pnpm run deploy
 | COOKIES_SECRET         | 必填，cookie加密密钥，随机字符串      | `12345abcde`                |
 | TURSO_DB_RO_AUTH_TOKEN | 必填，turso数据库只读凭据             | `my-turso-db-ro-auth-token` |
 | TURSO_DB_URL           | 必填，turso数据库URL                  | `libsql://db-name.turso.io` |
-| EMAIL_DOMAIN           | 必填，域名后缀，支持多个              | `vmail.dev,meetu.dev`       |
+| EMAIL_DOMAIN           | 必填，域名后缀，支持多个              | `temp-email.dev,meetu.dev`       |
 | EXPIRY_TIME            | 可选，邮箱过期时间，单位秒，默认86400 | `86400`                     |
 | TURNSTILE_KEY          | 可选，网站验证所需的 Turnstile Key    | `my-turnstile-key`          |
 | TURNSTILE_SECRET       | 可选，网站验证所需的 Turnstile Secret | `my-turnstile-secret`       |
@@ -110,9 +110,9 @@ pnpm run deploy
 
 **Vercel:** 
 
-推荐使用一键部署按钮（此操作会在你的github账户中自动创建vmail仓库并关联部署到vercel）：
+推荐使用一键部署按钮（此操作会在你的github账户中自动创建temp-email仓库并关联部署到vercel）：
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foiov%2Fvmail&env=COOKIES_SECRET&env=TURNSTILE_KEY&env=TURNSTILE_SECRET&env=TURSO_DB_RO_AUTH_TOKEN&env=TURSO_DB_URL&env=EMAIL_DOMAIN&project-name=vmail&repository-name=vmail)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Foiov%2Ftemp-email&env=COOKIES_SECRET&env=TURNSTILE_KEY&env=TURNSTILE_SECRET&env=TURSO_DB_RO_AUTH_TOKEN&env=TURSO_DB_URL&env=EMAIL_DOMAIN&project-name=temp-email&repository-name=temp-email)
 
 或手动将代码推送到你的 Github 仓库，并在 Vercel 面板中创建项目。选择 `New project`，然后导入对应的 Github 仓库，填写环境变量，选择 `Remix` 框架，点击 `Deploy`，等待部署完成。
 
@@ -129,7 +129,7 @@ pnpm run deploy
 **fly.io:** 
 
 ```bash
-cd vmail/apps/remix 
+cd temp-email/apps/remix 
 fly launch
 ```
   
